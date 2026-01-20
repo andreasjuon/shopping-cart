@@ -1,7 +1,11 @@
 
 import { Link } from "react-router";
+import { useContext } from "react";
+import { ShopContext } from "../layouts/MainLayout";
 
-function NavBar({cartItems, countItemInCart}) {
+function NavBar( ) {
+
+  const { cartItems } = useContext(ShopContext);
 
   let totalItems = 0;
   totalItems = Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);

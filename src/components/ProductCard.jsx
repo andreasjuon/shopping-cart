@@ -15,6 +15,7 @@ function ProductCard({
   onClickMinus,
   setItemInCart,
 }) {
+  
   const description_short =
     description.length > 100 ? description.slice(0, 100) + "..." : description;
 
