@@ -2,6 +2,7 @@
 
 
 import { Link } from "react-router";
+import { useRef, useEffect } from "react";
 
 function ProductCard({
   id,
@@ -15,13 +16,22 @@ function ProductCard({
   onClickMinus,
   setItemInCart,
 }) {
+
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      cardRef.current.className =
+        times > 0 ? "productCardInCart" : "productCard";
+    }
+  }, [times]);
   
   const description_short =
     description.length > 100 ? description.slice(0, 100) + "..." : description;
 
   return (
     <>
-      <div className="productCard" key={id}>
+      <div key={id} ref={cardRef}>
         <div>
           <h2 className="productTitle">{title}</h2>
           <Link to={`/shop/${id}`}>Details</Link>

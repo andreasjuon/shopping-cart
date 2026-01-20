@@ -52,7 +52,11 @@ nav {
   background-color: azure;
 }
 
-.productCard img {
+.productCardInCart {
+  background-color: lightblue;
+}
+
+.productCard img, .productCardInCart img {
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -112,7 +116,7 @@ p.productCategory, p.productPrice {
   font-weight: bold;
 }
 
-.productCard input {
+.productCard input, .productCardInCart input {
   width: 50px;
 }
 
