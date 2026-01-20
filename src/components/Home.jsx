@@ -1,13 +1,6 @@
 
-import { useState } from "react"; 
-import "./App.css";
-
-
-
-function App() {
-
-
-
+function Home() {
+  
   return (
     <>
       <h1>Welcome to Andreas' perfect shop!</h1>
@@ -17,4 +10,4 @@ function App() {
   );
 }
 
-export default App
+export default Home;

@@ -1,42 +1,124 @@
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0.5rem 0;
+}
+
 #root {
-  max-width: 1280px;
+  min-height: 100vh;
+  width: 100vw;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.allPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 100;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.main-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.card {
-  padding: 2em;
+.itemsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
+.productCard {
+  background-color: azure;
 }
+
+.productCard img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.additionalInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.additionalInfo button, .cartCard button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+p.productCategory, p.productPrice {
+  font-size: 0.75rem;
+}
+
+.itemsListCart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cartCard {
+  display: grid;
+  grid-template-columns: minmax(60px, 1fr) 1fr 1fr 1fr repeat(2, minmax(30px, 0.25fr));
+  align-items: center;
+}
+
+
+.cartCard img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.productTitle {
+  font-weight: bold;
+}
+
+.productCard input {
+  width: 50px;
+}
+
+
+/*
+TODOs:
+- Add info pages for each item using router functionality
+- Implement API
+*/
