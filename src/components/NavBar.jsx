@@ -1,7 +1,7 @@
 
 import { Link } from "react-router";
 import { useContext } from "react";
-import { ShopContext } from "../layouts/MainLayout";
+import ShopContext from "../ShopContext";
 
 function NavBar( ) {
 
