@@ -8,6 +8,14 @@ function ButtonComponent() {
 
   useEffect(() => {
     buttonRef.current && buttonRef.current.focus();
+    buttonRef.current.textContent = "!!!DEALS DEALS DEALS!!!";
+    let timeout = setTimeout(() => {
+      buttonRef.current.textContent = "Shop";
+    }, 2000);
+    return () => {
+      clearTimeout(timeout);
+    };
+
   }, []);
 
   return (
