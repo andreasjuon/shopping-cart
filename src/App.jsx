@@ -12,7 +12,7 @@ function App() {
     <>
       <h1>Welcome to Andreas' perfect shop!</h1>
 
-      <p>Hello. Please buy my things and please do so many times!</p>
+      <p>Hello. Please buy all my things and please do so many times!</p>
     </>
   );
 }
