@@ -2,6 +2,7 @@
 
 import { useOutletContext } from "react-router";
 import CartCard from "./CartCard";
+import { useMemo } from "react";
 
 
 
@@ -12,9 +13,11 @@ function Cart() {
 
   const shopItemsInCart = shopItems.filter((item) => cartItems[item.id] > 0);
 
-  const totalPayable = shopItemsInCart.reduce((sum, item) => {
-    return sum + item.price * cartItems[item.id];
-  }, 0);
+  const totalPayable = useMemo(() => {
+    return shopItemsInCart.reduce((sum, item) => {
+      return sum + item.price * cartItems[item.id];
+    }, 0);
+  }, [shopItemsInCart, cartItems]);
 
   return (
     <>
