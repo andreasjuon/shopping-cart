@@ -2,7 +2,7 @@
 
 import { useOutletContext } from "react-router";
 import CartCard from "./CartCard";
-import { useMemo } from "react";
+import { useCallback } from "react";
 
 
 
@@ -13,11 +13,15 @@ function Cart() {
 
   const shopItemsInCart = shopItems.filter((item) => cartItems[item.id] > 0);
 
-  const totalPayable = useMemo(() => {
-    return shopItemsInCart.reduce((sum, item) => {
-      return sum + item.price * cartItems[item.id];
-    }, 0);
-  }, [shopItemsInCart, cartItems]);
+  const totalPayable = useCallback(
+    () =>
+      shopItems.reduce(
+        (sum, item) =>
+          sum + (cartItems[item.id] > 0 ? item.price * cartItems[item.id] : 0),
+        0,
+      ),
+    [shopItems, cartItems],
+  );
 
   return (
     <>
@@ -36,7 +40,7 @@ function Cart() {
           />
         ))}
       </div>
-      <h2>Total Payable to Andreas: ${totalPayable.toFixed(2)}</h2>
+      <h2>Total Payable to Andreas: ${totalPayable().toFixed(2)}</h2>
     </>
   );
 }
